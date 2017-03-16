@@ -29,6 +29,13 @@ defmodule Hexen.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:credo, "~> 0.6.1", only: [:dev, :test]},
+      {:dialyxir, "~> 0.5.0", only: [:dev], runtime: false},
+      {:gen_stage, "~> 0.11.0"},
+      {:flow, "~> 0.11.0"},
+      {:httpoison, "~> 0.11.1"},
+      {:poison, "~> 3.1"}
+    ]
   end
 end
