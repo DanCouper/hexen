@@ -10,7 +10,8 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :hexen, key: :value
+config :hexen, hex_packages_endpoint: "https://hex.pm/api/packages"
+config :hexen, hex_limit_per_min: 100
 #
 # And access this configuration in your application as:
 #
