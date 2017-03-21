@@ -29,6 +29,18 @@ Hex limits requests to 100/min, so need to rate limit (same for GH etc) -
 Record responses for testing so that tests are snappy - [ExVCR](https://github.com/parroty/exvcr).
 [Plus here's an investigation into using it.](https://10consulting.com/2016/11/07/http-unit-tests-in-elixir-using-exvcr/)
 
+
+Getting from the repo endpoint in Hex:
+
+* Grab signed, names and package pb scripts from the `registry/` folder at https://github.com/hexpm/specifications/
+* Add them under `src` so that the project compiles them.
+* make a request against `https://repo.hex.pm/names` or `https://repo.hex.pm/packages/{name_of_package}` and grab the body.
+* `:zlib.gunzip` the response.
+*  with the result of that, run `:hex_pb_signed.decode_msg(decoded_response, :Signed)`.
+* get the `:payload` field from that.
+* If trying for the names, run `:hex_pb_names.decode_msg(payload :Names)` and grab the `:packages` field.
+* If trying for package info, run `:hex_pb_package.decode_msg(payload, :Package)`, and the `releases` field will contain all the releases, including dependencies.
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed

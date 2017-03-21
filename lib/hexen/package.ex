@@ -54,20 +54,20 @@ defmodule Hexen.Package do
     licences: [String.t()],
     maintainers: [String.t()] | nil,
     current_version: String.t(),
-    updated_at: DateTime.t(),
-    inserted_at: DateTime.t(),
+    # updated_at: DateTime.t(),
+    # inserted_at: DateTime.t(),
     # versions: integer(),
     # releases: [%{url: String.t(), version: String.t()}],
     # dependencies: [String.t()] | nil,
 
-    repo_source: String.t() | nil,
-    repo_url: String.t() | nil,
-    repo_stars: integer() | nil,
-    repo_issues: integer() | nil,
-    repo_oldest_issue: DateTime.t() | nil,
-    repo_newest_issue: DateTime.t() | nil,
-    repo_has_readme: boolean(),
-    repo_has_changelog: boolean(),
+    # repo_source: String.t() | nil,
+    # repo_url: String.t() | nil,
+    # repo_stars: integer() | nil,
+    # repo_issues: integer() | nil,
+    # repo_oldest_issue: DateTime.t() | nil,
+    # repo_newest_issue: DateTime.t() | nil,
+    # repo_has_readme: boolean(),
+    # repo_has_changelog: boolean(),
   }
 
   defstruct name: "ExampleHexPackage",
@@ -76,7 +76,7 @@ defmodule Hexen.Package do
             url: "example.com/example_hex_package",
             licences: nil,
             maintainers: nil,
-            current_version: "1000.1.1",
-            updated_at: %DateTime{},
-            inserted_at: %DateTime{},
+            current_version: "1000.1.1"
+            # updated_at: %DateTime{},
+            # inserted_at: %DateTime{}
 end
