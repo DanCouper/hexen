@@ -39,6 +39,8 @@ defmodule Hexen.Packages do
     |> Poison.decode!
   end
 
+
+  # Sign the API response from the repo so the paload can be decoded:
   defp protobuf_sign(response) do
     response
     |> :zlib.gunzip
