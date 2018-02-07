@@ -27,7 +27,7 @@ defmodule Hexen.Github do
   end
 
   def get_repo_info(user, repo) do
-    Github.get!("https://api.github.com/repos/" <> user <> "/" <> repo).body
+    Github.get!("https://api.github.com/repos/#{user}/#{repo}").body
   end
 
   def process_response_body(body) do

@@ -25,7 +25,7 @@ defmodule Hexen.Packages do
   a map of all the versions (including a list of dependencies for each).
   """
   def get_package(name) do
-    Packages.get!("https://repo.hex.pm/packages/" <> name).body
+    Packages.get!("https://repo.hex.pm/packages/#{name}").body
     |> protobuf_sign()
     |> :hex_pb_package.decode_msg(:Package)
   end
@@ -35,12 +35,12 @@ defmodule Hexen.Packages do
   particular package
   """
   def get_package_info(name) do
-    Packages.get!("https://hex.pm/api/packages/" <> name).body
+    Packages.get!("https://hex.pm/api/packages/#{name}").body
     |> Poison.decode!
   end
 
 
-  # Sign the API response from the repo so the paload can be decoded:
+  # Sign the API response from the repo so the payload can be decoded:
   defp protobuf_sign(response) do
     response
     |> :zlib.gunzip
